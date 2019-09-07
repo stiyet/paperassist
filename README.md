@@ -14,17 +14,17 @@ A scientific assistant collecting academic papers.
 ```shell
 scrapy runspider -a keyword='named entity recognition' -a number=10 -a sort_key=0 -o baidu_papers.json baidu.py
 ```
-![](./images/baidu.png)
 
 
 ## 2. Google scholar
 
 ```shell
-scrapy runspider -a keyword='named entity recognition' -a number=10 -a sort_key=0 -o baidu_papers.json baidu.py
+scrapy runspider -a keyword='named entity recognition' -a number=10 -a sort_key=0 -o google_papers.json google.
+py
 ```
 
 
-## post process
+## 3. post process
 ```shell
 python post_process.py -f baidu_papers.json -a 'G Lample','A Ritter','R Leaman'
 ```
