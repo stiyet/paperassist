@@ -9,12 +9,19 @@ A scientific assistant collecting academic papers.
 
 # Modules
 
-## 1.Baidu scholar
+## 1. Baidu scholar
 
 ```shell
 scrapy runspider -a keyword='named entity recognition' -a number=10 -a sort_key=0 -o baidu_papers.json baidu.py
 ```
 ![](./images/baidu.png)
+
+
+## 2. Google scholar
+
+```shell
+scrapy runspider -a keyword='named entity recognition' -a number=10 -a sort_key=0 -o baidu_papers.json baidu.py
+```
 
 
 ## post process
@@ -23,6 +30,3 @@ python post_process.py -f baidu_papers.json -a 'G Lample','A Ritter','R Leaman'
 ```
 ![](./images/post.png)
 
-# Todo
-- Google scholar
-- Semantic scholar

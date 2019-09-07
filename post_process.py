@@ -33,6 +33,7 @@ if __name__ == "__main__":
     author_papers = []
 
     for item in papers:
+        item['cited'] = int(item['cited'])
         title = item['title']
         authors = item['authors']
         if 'survey' in title or 'overview' in title or 'summary' in title or 'review' in title or 'outline' in title:
