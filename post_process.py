@@ -31,9 +31,12 @@ if __name__ == "__main__":
     # filter
     survey_papers = []  # survey, overview, summary, review, outline
     author_papers = []
+    
 
     for item in papers:
         item['cited'] = int(item['cited'])
+        if '年' in item['date']:
+            item['date'] = int(item['date'][:-1])
         title = item['title']
         authors = item['authors']
         if 'survey' in title or 'overview' in title or 'summary' in title or 'review' in title or 'outline' in title:
@@ -44,6 +47,7 @@ if __name__ == "__main__":
                     author_papers.append(item)
                     break
     high_cited_papers = sorted(papers, key=lambda x: x['cited'], reverse=True)
+    updated_papers = sorted(papers, key=lambda x: x['date'], reverse=True) # date sorted
     # save
     with open('./result/suvery.txt', 'w') as f:
         for t in survey_papers:
@@ -55,5 +59,9 @@ if __name__ == "__main__":
             f.write('\n')
     with open('./result/highcited.txt', 'w') as f:
         for t in high_cited_papers:
+            f.write(json.dumps(t))
+            f.write('\n')
+    with open('./result/latest.txt', 'w') as f:
+        for t in updated_papers:
             f.write(json.dumps(t))
             f.write('\n')
